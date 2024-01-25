@@ -7,7 +7,7 @@ import Projects from "./components/Projects";
 
 const App : React.FC = () : React.ReactElement => {
 
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ const App : React.FC = () : React.ReactElement => {
 
   return (
     <div className={` app ${isDark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''}`} data-theme={`${isDark ? 'dark' : 'light'}`} >
+      <div className={` background ${isDark ? 'dark' : ''} ${menuOpen ? 'menu-open' : ''}`} ></div>
       <div className='container'>
         <HeaderNavigation
           isDark={isDark}
@@ -35,7 +36,7 @@ const App : React.FC = () : React.ReactElement => {
         <About/>
         <Projects/>
         <Contact/>
-      </div>
+      d</div>
     </div>
   );
 }

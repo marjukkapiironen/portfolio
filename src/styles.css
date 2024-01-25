@@ -12,47 +12,54 @@ html {
 }
 
 body {
+    display: block;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    --dark-purple: #585191;
-    --light-purple: #f8f7f7;
-    --mint: #b3ffcc;   
+    -moz-osx-font-smoothing: grayscale; 
 }
 
 .app {
-    background-color: #fdf5f2;
     position: relative;
-    display: flex;
-    justify-content: center;
     margin-right: 0;
     transition: margin-right 0.9s ease-in-out;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
 }
 
-.app.dark {
-    background: rgb(31,46,34);
-    background: linear-gradient(302deg, rgba(31,46,34,1) 0%, rgba(62,91,67,1) 100%);
+.background.dark {
+    background: url(./bg-dark.jpg);
+
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url(./bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    z-index: -1;
 }
+
 
 .app.menu-open {
-    margin-right: 30vw;
-}
-
-[data-theme="dark"] {
-    --primary:  #ebe6ff;
-    --secondary: #c4edc6;
-    --menu: #6d9da8;
-    --accent:#7f371a;
-    --light: #ebe6ff;
-    --text: #edf8ed;
+    margin-right: 600px;
 }
 
 [data-theme="light"] {
+    --primary: #1b507e;
+    --accent:#7f371a;
+    --opaque: rgba(255, 255, 255, 0.4);
+    --light: #ebe6ff;
+    --text: #153551;
+}
+
+[data-theme="dark"] {
     --primary:  #381b98;
-    --secondary: #6773DB;
+    --primary: #6773DB;
     --menu: #4613ec;
     --light: #ebe6ff;
     --accent: #f2cdc0;
@@ -72,7 +79,7 @@ p {
 }
 
 h2 {
-    color: var(--secondary);
+    color: var(--primary);
     font-family: 'Kalnia', serif;
     line-height: 1.2;
     letter-spacing: -0.05em;
@@ -81,7 +88,7 @@ h2 {
 }
 
 h2.animated {
-    color: var(--secondary);
+    color: var(--primary);
     font-family: 'League Script', cursive;
     letter-spacing: normal;
     font-size: 10em;
@@ -135,7 +142,7 @@ img {
 }
 
 .section-container {
-    border-top: solid var(--secondary) 1px;
+    border-top: solid var(--primary) 1px;
     margin: auto;
 }
 
@@ -187,7 +194,7 @@ img {
     right: -5px;
     bottom: -3px;
     border-radius: 50%;
-    border: solid var(--secondary) 1px;
+    border: solid var(--primary) 1px;
   }
 
 .open-button {
@@ -269,13 +276,11 @@ button.intro-button {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 100%;
-    background-color: transparent;
-    border: solid var(--primary) 1px;
+    background-color: var(--opaque);
 }
 
 button.intro-button:hover {
-    border: solid var(--accent) 1px;
-    background-color: var(--accent);
+    background-color: var(--opaque);
     color: var(--light);
 }
 
@@ -347,7 +352,7 @@ li.skills {
         right: -45vw;
     }
 
-    .container.menu-open {
+    .app.menu-open {
         margin-right: 50vw;
     }
 }
