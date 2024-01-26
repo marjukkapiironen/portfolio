@@ -6,7 +6,7 @@ import "../styles.css";
 const Info : React.FC = () : React.ReactElement => {  
 
     return (
-        <div id='info' className='component-container'>
+        <div id='about' className='component-container'>
 
             <h2>About me</h2>
         

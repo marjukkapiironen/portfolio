@@ -3,6 +3,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import SegmentIcon from '@mui/icons-material/Segment';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import logo from '../logo.png';
 import "../styles.css";
 
@@ -15,6 +16,26 @@ interface Props {
 
 const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMenuOpen}) : React.ReactElement => {
 
+    const [isVisible, setIsVisible] = useState(true);
+
+    useEffect(() => {
+      let prevScrollPos = window.scrollY;
+  
+      const handleScroll = () => {
+        const currentScrollPos = window.scrollY;
+        const isScrollingUp = currentScrollPos < prevScrollPos;
+  
+        setIsVisible(isScrollingUp || currentScrollPos === 0);
+        prevScrollPos = currentScrollPos;
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+      
 
     return (
         <>
@@ -24,65 +45,43 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMe
                 alt="logo"
                 />
 
-            <div className='mode-icons-container'>
-                <button
-                    className='mode-toggle-button'
-                    onClick={() => setIsDark(true)}
-                    >
-                    <DarkModeIcon
-                        className={`${isDark ? '' : 'opaque'}`}
-                        fontSize='large'
-                        style={{ fill: `${isDark ? '#b8e3b5' : '#7e5bf1'}` }}
-                        />
-                    {Boolean(isDark === true) &&
-                        <motion.div className="indicator dark" layoutId="indicator" />
-                    }
-                </button>
-                <button
-                    className='mode-toggle-button'
-                    onClick={() => setIsDark(false)}
-                    >
-                    <LightModeOutlinedIcon
-                        className={`${isDark ? 'opaque' : ''}`}
-                        fontSize='large'
-                        style={{ fill: `${isDark ? '#b8e3b5' : '#7e5bf1'}` }}
-                        />
-                    {Boolean(isDark === false) &&
-                        <motion.div className="indicator light" layoutId="indicator" />
-                    }
-                </button>
-            </div>
+            <div className='top-navbar-container'>
 
+            <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
 
+                    <a href='#about'><p>ABOUT</p></a>
+                    <a href='#about'><p>PROJECTS</p></a>
+                    <a href='#about'><p>CONTACT</p></a>
 
-            <button 
-                className={`nav-button open-button ${menuOpen ? 'menu-open' : 'menu-closed'}`}
-                onClick={() => setMenuOpen(true)}
-                >
-                <SegmentIcon
-                    fontSize='large'
-                    className='nav-icon'
-                    style={{ fill: `${isDark ? '#b8e3b5' : '#7e5bf1'}` }}
-                    />
-            </button>
+                    <div className='mode-toggle'>
+                        <button
+                            className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
+                            onClick={() => setIsDark(false)}
+                            >
+                            <DarkModeIcon
+                                fontSize='medium'
+                                style={{ fill: `${isDark ? '#6e79dd' : '#efcdc3'}` }}
+                                />
+                            {Boolean(isDark === true) &&
+                                <motion.div transition={{ delay: 0.2 }} className="indicator" layoutId="indicator" />
+                            }
+                        </button>
+                        <button
+                            className={`mode-toggle-button ${isDark ? 'opaque' : ''}`}
+                            onClick={() => setIsDark(true)}
+                            >
+                            <LightModeOutlinedIcon
+                                fontSize='medium'
+                                style={{ fill: `${isDark ? '#efcdc3' : '#1b507e'}` }}
+                                />
+                            {Boolean(isDark === false) &&
+                                <motion.div className="indicator" layoutId="indicator" />
+                            }
+                        </button>
 
-            <button
-                className={`nav-button close-button ${menuOpen ? 'menu-open' : 'menu-closed'}`}
-                onClick={() => setMenuOpen(false)}
-                >
-                <CloseIcon
-                    fontSize='large'
-                    className='icon-light nav-icon'
-                    style={{ fill: "#ebe6ff"}}
-                    />
-            </button>
+                </div>
+            </nav>
 
-            <div className={`menu ${menuOpen ? 'open' : ''}`}>
-                <ul>
-                    <li><h2 className='menu-open'>About</h2></li>
-                    <li><h2 className='menu-open'>Projects</h2></li>
-                    <li><h2 className='menu-open'>Contact</h2></li>
-                </ul>
             </div>
      
 

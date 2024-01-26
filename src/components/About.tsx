@@ -2,7 +2,7 @@ import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import '../styles.css';
 
-const Intro : React.FC = () : React.ReactElement => {
+const About : React.FC = () : React.ReactElement => {
 
     const [text, setText] = useState('learning');
 
@@ -66,7 +66,7 @@ const Intro : React.FC = () : React.ReactElement => {
                 animate={{opacity: 1, y: 0}}
                 transition={{ease: 'easeIn', duration: 0.6}}
                 >
-                <a href='#info'>
+                <a href='#about'>
                     <button className='intro-button'>
                         <p className='button-text'>Read more</p>
                     </button>
@@ -83,4 +83,4 @@ const Intro : React.FC = () : React.ReactElement => {
     );
   }
   
-  export default Intro;
+  export default About;

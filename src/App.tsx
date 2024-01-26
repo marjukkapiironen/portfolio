@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
+import { default as About, default as Intro } from "./components/About";
 import Contact from "./components/Contact";
 import HeaderNavigation from "./components/HeaderNavigation";
-import About from "./components/Info";
-import Intro from "./components/Intro";
 import Projects from "./components/Projects";
 
 const App : React.FC = () : React.ReactElement => {
@@ -36,7 +35,7 @@ const App : React.FC = () : React.ReactElement => {
         <About/>
         <Projects/>
         <Contact/>
-      d</div>
+      </div>
     </div>
   );
 }
