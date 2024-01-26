@@ -1,85 +1,68 @@
-import { AnimatePresence, Variants, motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
-import '../styles.css';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import profilePic from '../my_picture.jpg';
+import "../styles.css";
 
-const About : React.FC = () : React.ReactElement => {
-
-    const [text, setText] = useState('learning');
-
-    const changeText = () : any => {
-
-        if(text==='learning'){
-            return 'creating'
-        }
-        if(text==='creating'){
-            return 'designing'
-        }
-        if(text==='designing'){
-            return 'learning'
-        }
-      };
-
-    //Changing text animation
-    const variants: Variants = {
-        initial: { opacity: 0, y: -10 },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: 10 },
-      };
-
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-          setText(changeText());
-        }, 1900);
-    
-        return () => clearInterval(intervalId);
-      });
+const About : React.FC = () : React.ReactElement => {  
 
     return (
-        <div className='intro-container'>         
+        <div id='about' className='component-container'>
 
-            <motion.div
-                initial={{opacity: 0, y: -20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', duration: 0.6}}
-                >
-                <h2>Passion for</h2>
+            <h2>About me</h2>
+                <div className='col-container'>
 
-                    <h2>programming and</h2>
-                    <AnimatePresence mode='wait'>
-                        <motion.div
-                            variants={variants}
-                            initial='initial'
-                            animate='animate'
-                            exit='exit'
-                            key={text}
-                            style={{ zIndex: -5}}
-                            >
-                            <h2 className='animated'>{text}</h2>
-                        </motion.div>
-                    </AnimatePresence>
-       
-            </motion.div>
+                    <div className='col-8'>
+                        <p>Hi there! I'm Marjukka.
+                            I'm a second-year information processing science student &#64; Xamk specialising in front end development. I love the creative and technical the process
+                            of starting with an idea and making it come to life. Most of all I'm passionate about constantly challenging myself to learn more and improve
+                            my skills in creating engaging digital experiences.
+                        </p>
+                        <p style={{marginBottom: '0.5em', marginTop: '1.5em'}}>Technologies I have studied / am currently studying ...</p>
+                        <ul className='skills'>
+                            <li className='skills'>
+                                <p>TYPESCRIPT</p>
+                            </li>
+                            <li className='skills'>
+                                <p>REACT.JS</p>
+                            </li>
+                            <li className='skills'>
+                                <p>EXPRESS</p>
+                            </li>
+                            <li className='skills'>
+                                <p>NODE.JS</p>
+                            </li>
+                            <li className='skills'>
+                                <p>HTML</p>
+                            </li>
+                            <li className='skills'>
+                                <p>CSS</p>
+                            </li>
+                            <li className='skills'>
+                                <p>POSTGRESQL</p>
+                            </li>
+                            <li className='skills'>
+                                <p>PYTHON</p>
+                            </li>
+                        </ul>
+                        <p style={{marginTop: '0.5em'}}>
+                        ...and I can't wait to learn more with every project. I'm most experienced with TS, React,
+                        Node, HTML and CSS.
+                        </p>
+                    </div>
 
-            <motion.div
-                className='button-container'
-                initial={{opacity: 0, y: 20}}
-                animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', duration: 0.6}}
-                >
-                <a href='#about'>
-                    <button className='intro-button'>
-                        <p className='button-text'>Read more</p>
-                    </button>
-                </a>
-                <a href='#info'>
-                    <button className='intro-button'>
-                        <p className='button-text'>Say hello</p>
-                    </button>
-                </a>
-            </motion.div>
+                    <div className='col-4'>
+                        <div className='pic'>
+                    <img
+                        className='profile-pic'
+                        src={profilePic}
+                        alt="Marjukka"
+                        />
+                        </div>
+                    </div>
 
-        </div>
 
+            </div>
+        </div>      
     );
   }
   

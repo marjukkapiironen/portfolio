@@ -1,7 +1,5 @@
-import CloseIcon from '@mui/icons-material/Close';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import SegmentIcon from '@mui/icons-material/Segment';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import logo from '../logo.png';
@@ -10,11 +8,9 @@ import "../styles.css";
 interface Props {
     isDark : boolean
     setIsDark : (arg0 : boolean) => void
-    menuOpen : boolean
-    setMenuOpen : (arg0 : boolean) => void
 }
 
-const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMenuOpen}) : React.ReactElement => {
+const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElement => {
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -41,17 +37,22 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMe
         <>
             <img
                 className='logo-pic'
-                src={logo}
+                src={ logo }
                 alt="logo"
                 />
 
-            <div className='top-navbar-container'>
+            <motion.div
+                className='top-navbar-container'
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ease: 'easeIn', duration: 1.2, delay: 1}}
+                >
 
             <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
 
-                    <a href='#about'><p>ABOUT</p></a>
-                    <a href='#about'><p>PROJECTS</p></a>
-                    <a href='#about'><p>CONTACT</p></a>
+                    <a href='#about'><p className='bold'>ABOUT</p></a>
+                    <a href='#projects'><p className='bold'>PROJECTS</p></a>
+                    <a href='#contect'><p className='bold'>CONTACT</p></a>
 
                     <div className='mode-toggle'>
                         <button
@@ -59,11 +60,11 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMe
                             onClick={() => setIsDark(false)}
                             >
                             <DarkModeIcon
-                                fontSize='medium'
-                                style={{ fill: `${isDark ? '#6e79dd' : '#efcdc3'}` }}
+                                fontSize='small'
+                                style={{ fill: `${isDark ? '#333366' : '#efcdc3'}` }}
                                 />
                             {Boolean(isDark === true) &&
-                                <motion.div transition={{ delay: 0.2 }} className="indicator" layoutId="indicator" />
+                                <motion.div className="indicator" layoutId="indicator" />
                             }
                         </button>
                         <button
@@ -71,7 +72,7 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMe
                             onClick={() => setIsDark(true)}
                             >
                             <LightModeOutlinedIcon
-                                fontSize='medium'
+                                fontSize='small'
                                 style={{ fill: `${isDark ? '#efcdc3' : '#1b507e'}` }}
                                 />
                             {Boolean(isDark === false) &&
@@ -82,7 +83,7 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark, menuOpen, setMe
                 </div>
             </nav>
 
-            </div>
+            </motion.div>
      
 
         </>

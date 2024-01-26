@@ -9,6 +9,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 25vh;
+    
 }
 
 body {
@@ -54,7 +55,6 @@ body {
     --accent:#efcdc3;
     --opaque: rgb(212, 230, 247, 0.8);
     --light: #ebe6ff;
-    --text: #153551;
 }
 
 [data-theme="dark"] {
@@ -62,7 +62,6 @@ body {
     --opaque: rgb(17, 17, 34, 0.7);
     --light: #ebe6ff;
     --accent:#eabcae;
-    --text: #acb3ec;
 }
 
 /*Typography*/
@@ -73,7 +72,13 @@ p {
     font-weight: 400;
     letter-spacing: 0.2px;
     font-family: 'Cabin', sans-serif;
-    color: var(--text);
+    color: var(--primary);
+}
+
+p.bold {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 h2 {
@@ -96,35 +101,12 @@ h2.animated {
     margin: 0.1em 0 0.5em 6px;
 }
 
-h2.heading {
-    font-family: 'Kalnia', serif;
-    font-size: 4.5em;
-    letter-spacing: -0.05em;
-    line-height: 1;
-    margin-bottom: 0.5em;
-}
-
-h2.menu-open {
-    color: var(--light);
-}
-
 button {
     cursor: pointer;
     background-color: transparent;
     border: none;
     border-radius: 25px;
 }
-
-p.button-text {
-    font-weight: 600;
-}
-
-img {
-    display: inline;
-    margin: 0 auto;
-    height: 100%;
-    width: auto;
-  }
 
 
 /* Global styling */
@@ -139,17 +121,14 @@ img {
     width: 100%;
 }
 
-.section-container {
-    border-top: solid var(--primary) 1px;
-    margin: auto;
-}
 
 .col-container {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    gap: 2em;
-    margin-top: 2em;
+    gap: 4em;
+    padding-top: 2em;
+    border-top: solid var(--primary) 1px;
 }
 
 .col-8{
@@ -173,7 +152,6 @@ img {
     top: 1em;
     left: 0;
     width: 100%;
-    height: 3.5em;
     display: flex;
     justify-content: center;
     z-index: 3;
@@ -183,6 +161,7 @@ img {
     width: 75%;
     min-width: 200px;
     max-width: 700px;
+    padding: 0.5em;
     background-color: var(--opaque);
     color: var(--text);
     border-radius: 25px;
@@ -233,7 +212,7 @@ img {
 /*Intro*/
 .intro-container {
     width: 100%;
-    height: calc(100vh - 2em);
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -257,9 +236,6 @@ button.intro-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 100%;
     background-color: var(--opaque);
 }
 
@@ -269,17 +245,19 @@ button.intro-button:hover {
 }
 
 
-/*Info*/
+/*About*/
 
 .pic {
-    width: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
+
 
 .profile-pic {
     width: 100%;
+    max-height: 300px;
     overflow: hidden;
 }
 
@@ -326,6 +304,19 @@ li.skills {
         z-index: -1;
     }
 }
+
+
+    .dotted-pattern {
+        width: 100%;
+        height: 500px; /* Adjust the height as needed */
+        background: 
+          radial-gradient(circle at 3px 3px, #000 3px, transparent 4px),
+          radial-gradient(circle at 9px 9px, #000 1px, transparent 2px),
+          radial-gradient(circle at 9px 15px, #000 1px, transparent 2px),
+          radial-gradient(circle at 15px 9px, #000 1px, transparent 2px),
+          radial-gradient(circle at 15px 15px, #000 1px, transparent 2px);
+      }
+
 
 /*Media queries*/
 

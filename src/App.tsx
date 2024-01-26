@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { default as About, default as Intro } from "./components/About";
+import About from "./components/About";
 import Contact from "./components/Contact";
 import HeaderNavigation from "./components/HeaderNavigation";
+import Intro from "./components/Intro";
 import Projects from "./components/Projects";
 
 const App : React.FC = () : React.ReactElement => {
