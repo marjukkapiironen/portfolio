@@ -1,23 +1,11 @@
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { content } from '../content';
 import '../styles.css';
 
 const Intro : React.FC = () : React.ReactElement => {
 
     const [text, setText] = useState('learning');
-
-    const changeText = () : any => {
-
-        if(text==='learning'){
-            return 'creating'
-        }
-        if(text==='creating'){
-            return 'designing'
-        }
-        if(text==='designing'){
-            return 'learning'
-        }
-      };
 
     //Changing text animation
     const variants: Variants = {
@@ -27,24 +15,34 @@ const Intro : React.FC = () : React.ReactElement => {
       };
 
       useEffect(() => {
+        let count = 1;
+    
         const intervalId = setInterval(() => {
-          setText(changeText());
+          const { currentItem, addedCount } = changeText(count);
+          setText(currentItem);
+          count = addedCount;
         }, 1900);
     
         return () => clearInterval(intervalId);
-      });
+      }, []);
+    
+      const changeText = (count: number): { currentItem: string; addedCount: number } => {
+        let items: string[] = content.intro.changing_text;
+    
+        const currentItem = items[count];
+        const addedCount = (count + 1) % items.length;
+        return { currentItem, addedCount };
+      };
 
     return (
         <div className='intro-container'>         
 
             <motion.div
-                initial={{opacity: 0, y: -30}}
+                initial={{opacity: 0, y: -70}}
                 animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', duration: 0.7}}
+                transition={{ease: 'easeIn', opacity: {duration: 2}, y: {duration: 0.7}}}
                 >
-                <h2>Passion for</h2>
-
-                    <h2>programming and</h2>
+                <h2>{content.intro.main_text}</h2>
                     <AnimatePresence mode='wait'>
                         <motion.div
                             variants={variants}
@@ -59,21 +57,20 @@ const Intro : React.FC = () : React.ReactElement => {
                     </AnimatePresence>
        
             </motion.div>
-
             <motion.div
                 className='button-container'
-                initial={{opacity: 0, y: 30}}
+                initial={{opacity: 0, y: 70}}
                 animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', duration: 0.7}}
+                transition={{ease: 'easeIn', opacity: {duration: 2}, y: {duration: 0.7}}}
                 >
                 <a href='#about'>
-                    <button className='intro-button'>
-                        <p className='bold'>Read more</p>
+                    <button className='intro-button bold'>
+                        {content.intro.buttons.about}
                     </button>
                 </a>
                 <a href='#info'>
-                    <button className='intro-button'>
-                        <p className='bold'>Say hello</p>
+                    <button className='intro-button bold'>
+                        {content.intro.buttons.contact}
                     </button>
                 </a>
             </motion.div>

@@ -2,6 +2,7 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { content } from '../content';
 import logo from '../logo.png';
 import "../styles.css";
 
@@ -10,7 +11,7 @@ interface Props {
     setIsDark : (arg0 : boolean) => void
 }
 
-const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElement => {
+const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElement => {
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -40,20 +41,21 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark }) : React.React
                 src={ logo }
                 alt="logo"
                 />
-
             <motion.div
                 className='top-navbar-container'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ease: 'easeIn', duration: 1.2, delay: 1}}
                 >
-
-            <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
-
-                    <a href='#about'><p className='bold'>ABOUT</p></a>
-                    <a href='#projects'><p className='bold'>PROJECTS</p></a>
-                    <a href='#contect'><p className='bold'>CONTACT</p></a>
-
+                <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
+                    {content.navigation.map((item : string, index : number) => 
+                        <a
+                            key={index}
+                            href='#about'
+                            >
+                            <p className='bold nav'>{item}</p>
+                        </a>
+                    )}
                     <div className='mode-toggle'>
                         <button
                             className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
@@ -79,10 +81,8 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark }) : React.React
                                 <motion.div className="indicator" layoutId="indicator" />
                             }
                         </button>
-
-                </div>
-            </nav>
-
+                    </div>
+                </nav>
             </motion.div>
      
 
@@ -90,4 +90,4 @@ const HeaderNavigation : React.FC<Props> = ({ isDark, setIsDark }) : React.React
     );
   }
   
-  export default HeaderNavigation;
+  export default Navigation;

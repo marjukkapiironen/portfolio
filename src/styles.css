@@ -28,7 +28,7 @@ body {
 }
 
 .background.dark {
-    background: url(./bg-dark.jpg);
+    background: url(../public/assets/bg-dark.jpg);
 
 }
 
@@ -38,7 +38,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url(./bg.jpg);
+    background: url(../public/assets/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -52,14 +52,14 @@ body {
 
 [data-theme="light"] {
     --primary: #1b507e;
-    --accent:#efcdc3;
-    --opaque: rgb(212, 230, 247, 0.8);
+    --accent:#eabcae;
+    --blur: #d4e6f7cc;
     --light: #ebe6ff;
 }
 
 [data-theme="dark"] {
     --primary: #6e79dd;
-    --opaque: rgb(17, 17, 34, 0.7);
+    --blur: rgba(22, 22, 44, 0.5);
     --light: #ebe6ff;
     --accent:#eabcae;
 }
@@ -67,7 +67,7 @@ body {
 /*Typography*/
 
 p {
-    font-size: 1.15em;
+    font-size: 18px;
     line-height: 1.5;
     font-weight: 400;
     letter-spacing: 0.2px;
@@ -75,10 +75,17 @@ p {
     color: var(--primary);
 }
 
-p.bold {
+.bold {
+    font-size: 16px;
+    line-height: 1.5;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    font-family: 'Cabin', sans-serif;
+    color: var(--primary);
+}
+
+p.nav {
+    font-size: 1.05em;
 }
 
 h2 {
@@ -160,10 +167,12 @@ button {
 .top-navbar {
     width: 75%;
     min-width: 200px;
-    max-width: 700px;
+    max-width: 600px;
     padding: 0.5em;
-    background-color: var(--opaque);
-    color: var(--text);
+    background: var(--blur);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 25px;
     display: flex;
     flex-direction: row;
@@ -192,7 +201,7 @@ button {
     transition: opacity 0.3s ease-in;
 }
 
-.mode-toggle-button.opaque {
+.mode-toggle-button.blur {
     opacity: 0;
 }
 
@@ -236,12 +245,11 @@ button.intro-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--opaque);
+    background-color: var(--blur);
 }
 
 button.intro-button:hover {
-    background-color: var(--opaque);
-    color: var(--light);
+    color: var(--accent);
 }
 
 
