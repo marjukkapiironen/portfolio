@@ -35,58 +35,49 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
       
 
     return (
-        <>
-            <img
-                className='logo-pic'
-                src={ logo }
-                alt="logo"
-                />
-            <motion.div
-                className='top-navbar-container'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ease: 'easeIn', duration: 1.2, delay: 1}}
-                >
-                <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
-                    {content.navigation.map((item : string, index : number) => 
-                        <a
-                            key={index}
-                            href='#about'
-                            >
-                            <p className='bold nav'>{item}</p>
-                        </a>
-                    )}
-                    <div className='mode-toggle'>
-                        <button
-                            className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
-                            onClick={() => setIsDark(false)}
-                            >
-                            <DarkModeIcon
-                                fontSize='small'
-                                style={{ fill: `${isDark ? '#333366' : '#efcdc3'}` }}
-                                />
-                            {Boolean(isDark === true) &&
-                                <motion.div className="indicator" layoutId="indicator" />
-                            }
-                        </button>
-                        <button
-                            className={`mode-toggle-button ${isDark ? 'opaque' : ''}`}
-                            onClick={() => setIsDark(true)}
-                            >
-                            <LightModeOutlinedIcon
-                                fontSize='small'
-                                style={{ fill: `${isDark ? '#efcdc3' : '#1b507e'}` }}
-                                />
-                            {Boolean(isDark === false) &&
-                                <motion.div className="indicator" layoutId="indicator" />
-                            }
-                        </button>
-                    </div>
-                </nav>
-            </motion.div>
-     
-
-        </>
+        <motion.div
+            className='top-navbar-container'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ease: 'easeIn', duration: 1.2, delay: 1}}
+            >
+            <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
+                {content.navigation.map((item : string, index : number) => 
+                    <a
+                        key={index}
+                        href='#about'
+                        >
+                        <p className='bold nav'>{item}</p>
+                    </a>
+                )}
+                <div className='mode-toggle'>
+                    <button
+                        className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
+                        onClick={() => setIsDark(false)}
+                        >
+                        <DarkModeIcon
+                            fontSize='small'
+                            style={{ fill: `${isDark ? '#333366' : '#efcdc3'}` }}
+                            />
+                        {Boolean(isDark === true) &&
+                            <motion.div className="indicator" layoutId="indicator" />
+                        }
+                    </button>
+                    <button
+                        className={`mode-toggle-button ${isDark ? 'opaque' : ''}`}
+                        onClick={() => setIsDark(true)}
+                        >
+                        <LightModeOutlinedIcon
+                            fontSize='small'
+                            style={{ fill: `${isDark ? '#efcdc3' : '#1b507e'}` }}
+                            />
+                        {Boolean(isDark === false) &&
+                            <motion.div className="indicator" layoutId="indicator" />
+                        }
+                    </button>
+                </div>
+            </nav>
+        </motion.div>
     );
   }
   

@@ -34,9 +34,11 @@ const App : React.FC = () : React.ReactElement => {
           setIsDark={setIsDark}
           />
         <Intro/>
-        <About/>
-        <Projects/>
-        <Contact/>
+        <div className='divider'>
+          <About/>
+          <Projects/>
+          <Contact/>
+        </div>
       </div>
     </div>
   );

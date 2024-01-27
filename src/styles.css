@@ -108,6 +108,10 @@ h2.animated {
     margin: 0.1em 0 0.5em 6px;
 }
 
+h2.section-heading {
+    line-height: 1;
+}
+
 button {
     cursor: pointer;
     background-color: transparent;
@@ -128,6 +132,11 @@ button {
     width: 100%;
 }
 
+.divider {
+    border-left: solid var(--primary) 1px;
+    padding-left: 4em;
+}
+
 
 .col-container {
     display: flex;
@@ -135,21 +144,24 @@ button {
     justify-content: space-between;
     gap: 4em;
     padding-top: 2em;
-    border-top: solid var(--primary) 1px;
 }
 
-.col-8{
+.col-60{
     text-align: justify;
     text-justify: inter-word;
     width: 60%;
 }
 
-.col-4 {
+.col-40 {
     width: 40%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
+}
+
+.col-50 {
+    width: 50%;
 }
 
 /*Header and navigation*/
@@ -273,57 +285,39 @@ button.intro-button:hover {
     opacity: 0;
 }
 
-ul.facts {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 1em;
-}
-
-li.facts {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-}
-
 ul.skills {
     display: flex;
+    flex-direction: row;
     gap: 0.5em 1em;
     flex-wrap: wrap;
     width: 100%;
 }
 
 li.skills {
-    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-    &::after {
-        content: "";
-        background: var(--accent);
-        position: absolute;
-        left: 0.5em;
-        bottom: -0.2em;
-        width: calc(100% + 0.3%);
-        height: calc(100% - 0.6em);
-        z-index: -1;
-    }
+    background-color: var(--blur);
+    padding: 10px 15px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.icon {
+    color: var(--accent);
 }
 
 
-    .dotted-pattern {
-        width: 100%;
-        height: 500px; /* Adjust the height as needed */
-        background: 
-          radial-gradient(circle at 3px 3px, #000 3px, transparent 4px),
-          radial-gradient(circle at 9px 9px, #000 1px, transparent 2px),
-          radial-gradient(circle at 9px 15px, #000 1px, transparent 2px),
-          radial-gradient(circle at 15px 9px, #000 1px, transparent 2px),
-          radial-gradient(circle at 15px 15px, #000 1px, transparent 2px);
-      }
+/* Projects */
+
+.card {
+    background-color: var(--blur);
+    border-radius: 25px;
+    padding: 1.5em;
+
+}
 
 
 /*Media queries*/

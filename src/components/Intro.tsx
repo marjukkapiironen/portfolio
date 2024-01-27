@@ -38,9 +38,13 @@ const Intro : React.FC = () : React.ReactElement => {
         <div className='intro-container'>         
 
             <motion.div
-                initial={{opacity: 0, y: -70}}
-                animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', opacity: {duration: 2}, y: {duration: 0.7}}}
+                initial={{ opacity: 0, y: -70 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                                ease: 'easeIn',
+                                opacity: { duration: 2 },
+                                y: { duration: 0.8 }
+                            }}
                 >
                 <h2>{content.intro.main_text}</h2>
                     <AnimatePresence mode='wait'>
@@ -59,16 +63,20 @@ const Intro : React.FC = () : React.ReactElement => {
             </motion.div>
             <motion.div
                 className='button-container'
-                initial={{opacity: 0, y: 70}}
-                animate={{opacity: 1, y: 0}}
-                transition={{ease: 'easeIn', opacity: {duration: 2}, y: {duration: 0.7}}}
+                initial={{ opacity: 0, y: 70 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                                ease: 'easeIn',
+                                opacity: { duration: 2 },
+                                y: {duration: 0.8}
+                            }}
                 >
                 <a href='#about'>
                     <button className='intro-button bold'>
                         {content.intro.buttons.about}
                     </button>
                 </a>
-                <a href='#info'>
+                <a href='#projects'>
                     <button className='intro-button bold'>
                         {content.intro.buttons.contact}
                     </button>
