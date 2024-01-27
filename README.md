@@ -1,6 +1,7 @@
 # Portfolio
 
 My personal portfolio page.
+https://marjukkapiironen.github.io/home/
 
 Created using the following languages, frameworks and libraries:
 
