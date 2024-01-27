@@ -45,7 +45,7 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
                 {content.navigation.map((item : string, index : number) => 
                     <a
                         key={index}
-                        href='#about'
+                        href={`#${item}`}
                         >
                         <p className='bold nav'>{item}</p>
                     </a>

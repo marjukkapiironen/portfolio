@@ -34,6 +34,17 @@ export const content = {
         title: "Projects",
         description: "Here are some of my projects. I'm hoping to update this section soon to better represent my current skills.",
         items: [
+            {
+                name: "Portfolio page",
+                description: "A personal fully responsive portfolio page with dark and light mode options created with React, Typescript and libraries including Framer Motion and React Icons.",
+                link: "https://github.com/marjukkapiironen/portfolio/",
+            },
+            {
+                name: "Note app",
+                description: "A responsive app for writing color-coded notes with a clean design. Features include editing, searching and filtering. Used routing and local storage for storing data. This project was originally an assignment for a programming course.",
+                link: "https://github.com/marjukkapiironen/portfolio/",
+                picture: "/assets/note_app.png"
+            }
 
         ],
     },

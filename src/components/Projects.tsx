@@ -1,5 +1,6 @@
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { SiGithub, SiPolymerproject } from "react-icons/si";
 import { content } from '../content';
 import '../styles.css';
 
@@ -24,18 +25,39 @@ const Projects : React.FC = () : React.ReactElement => {
                 >
                     <p className='col-100'>{content.projects.description}</p>
                     <div className='col-container'>
-                        <div className='col-50 card'>
-                            <h3 style={{ marginBottom: "1em"}}>Otsikko</h3>
-                            <p>Testiä testiä</p>
-                        </div>
-                        <div className='col-50 card'>
-                            <img
-                                className='project-pic'
-                                src={process.env.PUBLIC_URL + '/assets/weather_app.png'}
-                                alt=""
-                            />
-                        </div>
-                    </div>
+                        
+                            {content.projects.items.map((project, index) =>
+                            <div className='col-50 card'>
+                                <div className='card-content'>
+                                    <div
+                                        key={index}
+                                        className='show-text'>
+                                        <div>
+                                            <h3 style={{ marginBottom: "1em"}}>{project.name}</h3>
+                                            <p>{project.description}</p>
+                                        </div>
+                                    </div>
+                                    {Boolean(project.picture) &&
+                                        <div className='show-picture'>
+                                            <img
+                                                className=''
+                                                src={process.env.PUBLIC_URL + `${project.picture}`}
+                                                alt=""
+                                                />
+
+                                        </div>
+                                    }
+                                </div>
+                                
+                                <div className='github-link'>
+                                    <SiGithub size={25} className='icon'/>
+                                    <a href={project.link}><p className='bold'>GitHub</p></a>
+                                </div>
+                        
+                            </div>
+                            )}
+
+                        </div>  
                
                
         </motion.div>

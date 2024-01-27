@@ -62,6 +62,7 @@ body {
     --blur: rgba(22, 22, 44, 0.5);
     --light: #ebe6ff;
     --accent:#eabcae;
+    --light-accent: #f5ddd6;
 }
 
 /*Typography*/
@@ -314,20 +315,55 @@ li.skills {
 }
 
 .icon {
-    color: var(--accent);
+    color: var(--light-accent);
 }
 
 
 /* Projects */
 
 .card {
-    background-color: var(--blur);
     border-radius: 25px;
+    height: 400px;
+    background-color: var(--blur);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.card-content{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.show-picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all 0.7s ease-in-out;
+    z-index: 2;
+    height: 100px;
+}
+
+.card-content:hover .show-picture {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.show-text {
+    height: 100%;
     padding: 2em;
 }
 
-.project-pic {
-    width: 90%
+.github-link {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
 }
 
 
