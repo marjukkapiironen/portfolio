@@ -1,9 +1,7 @@
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { HiMoon, HiSun } from "react-icons/hi2";
 import { content } from '../content';
-import logo from '../logo.png';
 import "../styles.css";
 
 interface Props {
@@ -55,8 +53,8 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
                         className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
                         onClick={() => setIsDark(false)}
                         >
-                        <DarkModeIcon
-                            fontSize='small'
+                        <HiMoon
+                            size={18}
                             style={{ fill: `${isDark ? '#333366' : '#efcdc3'}` }}
                             />
                         {Boolean(isDark === true) &&
@@ -67,9 +65,9 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
                         className={`mode-toggle-button ${isDark ? 'opaque' : ''}`}
                         onClick={() => setIsDark(true)}
                         >
-                        <LightModeOutlinedIcon
-                            fontSize='small'
-                            style={{ fill: `${isDark ? '#efcdc3' : '#1b507e'}` }}
+                        <HiSun
+                            size={18}
+                            style={{ fill: `${isDark ? '#db7657' : '#1b507e'}` }}
                             />
                         {Boolean(isDark === false) &&
                             <motion.div className="indicator" layoutId="indicator" />
