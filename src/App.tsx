@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import Intro from "./components/Intro";
 import Navigation from "./components/Navigation";
 import Projects from "./components/Projects";
@@ -39,6 +40,7 @@ const App : React.FC = () : React.ReactElement => {
           <Projects/>
           <Contact/>
         </div>
+        <Footer/>
       </div>
     </div>
   );

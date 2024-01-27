@@ -47,7 +47,7 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
                         key={index}
                         href={`#${item}`}
                         >
-                        <p className='bold nav'>{item}</p>
+                        <p className='bold'>{item}</p>
                     </a>
                 )}
                 <div className='mode-toggle'>

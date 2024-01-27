@@ -36,17 +36,42 @@ export const content = {
         items: [
             {
                 name: "Portfolio page",
-                description: "A personal fully responsive portfolio page with dark and light mode options created with React, Typescript and libraries including Framer Motion and React Icons.",
+                description: "A fully responsive animated personal portfolio page with dark and light mode versions. Created with React, Typescript and used libraries including Framer Motion and React Icons.",
                 link: "https://github.com/marjukkapiironen/portfolio/",
+                link_text: "github",
             },
             {
-                name: "Note app",
+                name: "Notes app",
                 description: "A responsive app for writing color-coded notes with a clean design. Features include editing, searching and filtering. Used routing and local storage for storing data. This project was originally an assignment for a programming course.",
-                link: "https://github.com/marjukkapiironen/portfolio/",
-                picture: "/assets/note_app.png"
+                link: "https://github.com/marjukkapiironen/muistiinpanot",
+                link_text: "github",
+                picture: "/assets/note_app.png",
             }
 
         ],
+    },
+    contact: {
+        title: "Find me on",
+        description: "Here are some places where you can find me on the internet. Feel free to take a look and say hello. :)",
+        items: [
+            {
+                name: "GitHub",
+                text: "My GitHub",
+                link: "https://github.com/marjukkapiironen",
+            },
+            {
+                name: "LinkedIn",
+                text: "My LinkedIn",
+                link: "",
+            }
+        ],
+    },
+    footer: {
+        text: "Designed and created by Marjukka Piironen 2024",
+        github_link: {
+            text: "GitHub",
+            link: "https://github.com/marjukkapiironen/portfolio/",
+        }
     },
     navigation: [
         "about",

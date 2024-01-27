@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import React from 'react';
 import { IconType } from 'react-icons/';
 import * as Icons from "react-icons/si";
 import { content } from '../content';
@@ -9,10 +10,11 @@ type IconNames = keyof typeof Icons;
 const About : React.FC = () : React.ReactElement => {  
 
     return (
+        <React.Fragment>
         <div id='about' className='component-container'>
 
             <h2 className='section-heading'>{content.about.title}</h2>
-                <div className='col-container'>
+                <div className='col-container about'>
                     <motion.div
                         className='col-60'
                         initial={{ opacity: 0, y: 70 }}
@@ -24,22 +26,21 @@ const About : React.FC = () : React.ReactElement => {
                                     }}
                         viewport={{ once : true }}
                         >
-                        
-                            <p>{content.about.bio[0]}</p>
-                            <p style={{ marginBottom: '0.5em', marginTop: '1.5em' }}>{content.about.bio[1]}</p>
-                            <ul className='skills'>
-                                {content.about.technologies.map((technology, index) => {
-                                    const IconComponent = Icons[technology.icon as IconNames] as IconType;
-                                    return (
-                                        <li
-                                        key={index}
-                                        className='skills'>
-                                            {IconComponent && <IconComponent size={15} className='icon' />}
-                                            <p className='bold'>{technology.name}</p>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
+                        <p>{content.about.bio[0]}</p>
+                        <p style={{ marginBottom: '0.5em', marginTop: '1.5em' }}>{content.about.bio[1]}</p>
+                        <ul className='skills'>
+                            {content.about.technologies.map((technology, index) => {
+                                const IconComponent = Icons[technology.icon as IconNames] as IconType;
+                                return (
+                                    <li
+                                    key={index}
+                                    className='skills'>
+                                        {IconComponent && <IconComponent size={15} className='icon' />}
+                                        <p className='bold'>{technology.name}</p>
+                                    </li>
+                                );
+                            })}
+                        </ul>
                             <p style={{ marginTop: '0.5em' }}>{content.about.bio[2]}</p>
                     </motion.div>
                     <motion.div
@@ -47,25 +48,27 @@ const About : React.FC = () : React.ReactElement => {
                         initial={{ opacity: 0, y: 70 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{
-                                        opacity: { duration: 2, delay: 0.4 },
-                                        y: { duration: 0.9, delay: 0.4 },
+                                        opacity: { duration: 2, delay: 0.8 },
+                                        y: { duration: 0.9, delay: 0.8 },
                                     }}
                         viewport={{ once : true }}
                         >
 
                         <div >
                             <div className='pic'>
-                        <img
-                            className='profile-pic'
-                            src={process.env.PUBLIC_URL + '/assets/picture.png'}
-                            alt=""
-                            />
+                                <img
+                                    className='profile-pic'
+                                    src={process.env.PUBLIC_URL + '/assets/picture.png'}
+                                    alt=""
+                                    />
                             </div>
                         </div>
                     </motion.div>
                 </div>
             
-        </div>      
+        </div>
+        <div className='component-gap'></div>
+        </React.Fragment>  
     );
   }
   

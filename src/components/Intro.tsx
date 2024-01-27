@@ -1,5 +1,6 @@
 import { AnimatePresence, Variants, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { content } from '../content';
 import '../styles.css';
 
@@ -72,12 +73,12 @@ const Intro : React.FC = () : React.ReactElement => {
                             }}
                 >
                 <a href='#about'>
-                    <button className='intro-button bold'>
+                    <button className='content-button bold'>
                         {content.intro.buttons.about}
                     </button>
                 </a>
-                <a href='#projects'>
-                    <button className='intro-button bold'>
+                <a href='#contact'>
+                    <button className='content-button bold'>
                         {content.intro.buttons.contact}
                     </button>
                 </a>
