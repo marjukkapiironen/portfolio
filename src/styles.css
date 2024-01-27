@@ -112,6 +112,14 @@ h2.section-heading {
     line-height: 1;
 }
 
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    font-family: 'Cabin', sans-serif;
+    color: var(--primary);
+}
+
 button {
     cursor: pointer;
     background-color: transparent;
@@ -315,8 +323,11 @@ li.skills {
 .card {
     background-color: var(--blur);
     border-radius: 25px;
-    padding: 1.5em;
+    padding: 2em;
+}
 
+.project-pic {
+    width: 90%
 }
 
 

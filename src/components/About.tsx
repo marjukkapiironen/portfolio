@@ -47,7 +47,7 @@ const About : React.FC = () : React.ReactElement => {
                     <img
                         className='profile-pic'
                         src={process.env.PUBLIC_URL + '/assets/picture.png'}
-                        alt="Marjukka"
+                        alt=""
                         />
                         </div>
                     </div>

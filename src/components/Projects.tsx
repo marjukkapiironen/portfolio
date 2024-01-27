@@ -25,12 +25,15 @@ const Projects : React.FC = () : React.ReactElement => {
                     <p className='col-100'>{content.projects.description}</p>
                     <div className='col-container'>
                         <div className='col-50 card'>
-                            <p>Testi</p>
+                            <h3 style={{ marginBottom: "1em"}}>Otsikko</h3>
                             <p>Testiä testiä</p>
                         </div>
                         <div className='col-50 card'>
-                            <p>Testi</p>
-                            <p>Testiä testiä</p>
+                            <img
+                                className='project-pic'
+                                src={process.env.PUBLIC_URL + '/assets/weather_app.png'}
+                                alt=""
+                            />
                         </div>
                     </div>
                
