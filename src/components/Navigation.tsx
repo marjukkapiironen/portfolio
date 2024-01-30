@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { m } from 'framer-motion';
+import { useEffect, useState, useTransition } from 'react';
 import { HiMoon, HiSun } from "react-icons/hi2";
-import { content } from '../content';
-import "../styles.css";
+import { NAVIGATION_CONTENT } from '../content';
 
 interface Props {
     isDark : boolean
@@ -10,6 +9,16 @@ interface Props {
 }
 
 const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElement => {
+
+    const [isPending, startTransition] = useTransition();
+
+    const handleThemeChange = () => {
+
+        startTransition(() => {
+            isDark ? setIsDark(false) : setIsDark(true);
+
+        });
+      };
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -33,14 +42,14 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
       
 
     return (
-        <motion.div
+        <m.div
             className='top-navbar-container'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ease: 'easeIn', duration: 1.2, delay: 1}}
             >
             <nav className={`top-navbar ${isVisible ? 'visible' : 'hidden'}`}>
-                {content.navigation.map((item : string, index : number) => 
+                {NAVIGATION_CONTENT.map((item : string, index : number) => 
                     <a
                         key={index}
                         href={`#${item}`}
@@ -48,34 +57,36 @@ const Navigation : React.FC<Props> = ({ isDark, setIsDark }) : React.ReactElemen
                         <p className='bold'>{item}</p>
                     </a>
                 )}
-                <div className='mode-toggle'>
-                    <button
+                <button
+                    className='mode-toggle'
+                    onClick={() => handleThemeChange()}
+                    >
+                    <div
                         className={`mode-toggle-button ${isDark ? '' : 'opaque'}`}
-                        onClick={() => setIsDark(false)}
+                        
                         >
                         <HiMoon
                             size={18}
                             style={{ fill: `${isDark ? '#333366' : '#efcdc3'}` }}
                             />
                         {Boolean(isDark === true) &&
-                            <motion.div className="indicator" layoutId="indicator" />
+                            <m.div className="indicator" layoutId="indicator" />
                         }
-                    </button>
-                    <button
+                    </div>
+                    <div
                         className={`mode-toggle-button ${isDark ? 'opaque' : ''}`}
-                        onClick={() => setIsDark(true)}
                         >
                         <HiSun
                             size={18}
                             style={{ fill: `${isDark ? '#db7657' : '#1b507e'}` }}
                             />
                         {Boolean(isDark === false) &&
-                            <motion.div className="indicator" layoutId="indicator" />
+                            <m.div className="indicator" layoutId="indicator" />
                         }
-                    </button>
-                </div>
+                    </div>
+                </button>
             </nav>
-        </motion.div>
+        </m.div>
     );
   }
   

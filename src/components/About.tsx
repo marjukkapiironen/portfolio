@@ -1,21 +1,19 @@
-import { motion } from 'framer-motion';
-import React from 'react';
+import { m } from 'framer-motion';
 import { IconType } from 'react-icons/';
 import * as Icons from "react-icons/si";
-import { content } from '../content';
-import "../styles.css";
+import { ABOUT_CONTENT } from '../content';
 
 type IconNames = keyof typeof Icons;
 
 const About : React.FC = () : React.ReactElement => {  
 
     return (
-        <React.Fragment>
+        <>
         <div id='about' className='component-container'>
 
-            <h2 className='section-heading'>{content.about.title}</h2>
+            <h2 className='section-heading'>{ABOUT_CONTENT.title}</h2>
                 <div className='col-container about'>
-                    <motion.div
+                    <m.div
                         className='col-60'
                         initial={{ opacity: 0, y: 70 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -26,10 +24,10 @@ const About : React.FC = () : React.ReactElement => {
                                     }}
                         viewport={{ once : true }}
                         >
-                        <p>{content.about.bio[0]}</p>
-                        <p style={{ marginBottom: '0.5em', marginTop: '1.5em' }}>{content.about.bio[1]}</p>
+                        <p>{ABOUT_CONTENT.bio[0]}</p>
+                        <p style={{ marginBottom: '0.5em', marginTop: '1.5em' }}>{ABOUT_CONTENT.bio[1]}</p>
                         <ul className='skills'>
-                            {content.about.technologies.map((technology, index) => {
+                            {ABOUT_CONTENT.technologies.map((technology, index) => {
                                 const IconComponent = Icons[technology.icon as IconNames] as IconType;
                                 return (
                                     <li
@@ -41,9 +39,9 @@ const About : React.FC = () : React.ReactElement => {
                                 );
                             })}
                         </ul>
-                            <p style={{ marginTop: '0.5em' }}>{content.about.bio[2]}</p>
-                    </motion.div>
-                    <motion.div
+                            <p style={{ marginTop: '0.5em' }}>{ABOUT_CONTENT.bio[2]}</p>
+                    </m.div>
+                    <m.div
                         className='col-40'
                         initial={{ opacity: 0, y: 70 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -53,22 +51,18 @@ const About : React.FC = () : React.ReactElement => {
                                     }}
                         viewport={{ once : true }}
                         >
-
-                        <div >
-                            <div className='pic'>
-                                <img
-                                    className='profile-pic'
-                                    src={process.env.PUBLIC_URL + '/assets/picture.png'}
-                                    alt=""
-                                    />
-                            </div>
+                        <div className='pic'>
+                            <img
+                                className='profile-pic'
+                                src={process.env.PUBLIC_URL + '/assets/profile-pic.png'}
+                                alt=""
+                                />
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
-            
         </div>
         <div className='component-gap'></div>
-        </React.Fragment>  
+        </>  
     );
   }
   

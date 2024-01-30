@@ -1,8 +1,6 @@
 import { motion } from 'framer-motion';
-import React from 'react';
 import { SiGithub } from "react-icons/si";
-import { content } from '../content';
-import '../styles.css';
+import { PROJECTS_CONTENT } from '../content';
 
 const Projects : React.FC = () : React.ReactElement => {
 
@@ -24,9 +22,9 @@ const Projects : React.FC = () : React.ReactElement => {
       }
 
     return (
-        <React.Fragment>
+        <>
             <div id='projects' className='component-container'>
-                <h2 className='section-heading'>{content.projects.title}</h2>
+                <h2 className='section-heading'>{PROJECTS_CONTENT.title}</h2>
                     <motion.div
                         style={{ paddingTop: "2em"}}
                         initial={{ opacity: 0, y: 70 }}
@@ -38,7 +36,7 @@ const Projects : React.FC = () : React.ReactElement => {
                                     }}
                         viewport={{ once : true }}
                         >
-                        <p className='col-100'>{content.projects.description}</p>
+                        <p className='col-100'>{PROJECTS_CONTENT.description}</p>
                         <motion.div
                             className='col-container projects'
                             variants={container}
@@ -46,7 +44,7 @@ const Projects : React.FC = () : React.ReactElement => {
                             whileInView="show"
                             viewport={{ once: true }}
                             >           
-                            {content.projects.items.map((project, index) =>
+                            {PROJECTS_CONTENT.items.map((project, index) =>
                             <motion.div
                                 key={index}
                                 className='col-50 card'
@@ -85,7 +83,7 @@ const Projects : React.FC = () : React.ReactElement => {
                 </motion.div>
             </div>
             <div className='component-gap'></div>      
-        </React.Fragment>
+        </>
     );
   }
   

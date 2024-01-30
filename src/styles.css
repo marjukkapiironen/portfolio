@@ -20,42 +20,29 @@ body {
 }
 
 .app {
-    position: relative;
-    margin-right: 0;
-    transition: margin-right 0.9s ease-in-out;
     overflow-x: hidden;
     display: flex;
     justify-content: center;
 }
 
-.background.dark {
-    background: url(../public/assets/bg-dark.jpg);
-
-}
-
 .background {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
-    height: 100vh;
-    background: url(../public/assets/bg.jpeg);
+    min-height: 100vh;
+    min-height: 100lvh;
+    background: var(--bg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     z-index: -1;
 }
 
-
-.app.menu-open {
-    margin-right: 600px;
-}
-
 [data-theme="light"] {
-    --primary: #32779a;
+    --primary: #5d6dd5;
     --accent:#e49881;
-    --blur: #b2d5e685;
+    --blur: #aeb6ea62;
     --light: #ebe6ff;
+    --shadow: #1e1a32;
+    --bg: url(../public/assets/bg.jpeg);
 }
 
 [data-theme="dark"] {
@@ -63,6 +50,8 @@ body {
     --blur: rgba(22, 22, 44, 0.5);
     --light: #ebe6ff;
     --accent:#eabcae;
+    --shadow: #1e1a32;
+    --bg: url(../public/assets/bg-dark.jpg);
 }
 
 /*Typography*/
@@ -102,7 +91,7 @@ h2.animated {
     opacity: 100%;
     font-weight: 100;
     opacity: 90%;
-    margin: 0.1em 0 0.5em 6px;
+    margin: 0.1em 0 0.5em 8px;
 }
 
 h2.section-heading {
@@ -271,13 +260,6 @@ button.content-button:hover {
     align-items: flex-start;
 }
 
-.logo-pic {
-    height: 55px;
-    position: absolute;
-    top: 2em;
-    left: 2em;
-}
-
 .button-container {
     display: flex;
     gap: 4em;
@@ -290,13 +272,14 @@ button.content-button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 
 .profile-pic {
-    width: 100%;
-    max-height: 300px;
-    overflow: hidden;
+    height: 300px;
+    border-radius: 50%;
+
 }
 
 .unactive {
@@ -445,14 +428,7 @@ p.footer-text {
         padding: 1em 3em;
     }
 
-    .logo-pic {
-        height: 45px;
-    }
-
-    .info-content {
-      height: 650px;
-    }
-  }
+}
 
 @media only screen and (max-width: 950px) {
 
@@ -530,7 +506,7 @@ p.footer-text {
     }
 
     .profile-pic {
-        max-height: 250px;
+        height: 250px;
     }
 
     .contact-links {
@@ -553,9 +529,15 @@ p.footer-text {
 }
 
 @media only screen and (max-width: 520px) {
+
+    .background {
+        height: calc(100vh + 70px);
+        min-height: calc(100vh + 70px);
+    }
     
     h2{
         font-size: 3em;
+        padding-left: 4px;
     }
 
     h2.animated {

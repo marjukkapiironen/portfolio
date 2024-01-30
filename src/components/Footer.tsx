@@ -1,21 +1,19 @@
-import React from 'react';
-import { content } from '../content';
-import '../styles.css';
+import { FOOTER_CONTENT } from '../content';
 
 const Footer : React.FC = () : React.ReactElement => {
 
     return (
-        <React.Fragment>
+        <>
             <div className='component-gap'></div>   
             <div className='footer-container'>
-                <p className='footer-text'>{content.footer.text}</p>
-                <a href={content.footer.github_link.link}>
+                <p className='footer-text'>{FOOTER_CONTENT.text}</p>
+                <a href={FOOTER_CONTENT.github_link.link}>
                     <button className='content-button footer-button bold'>
-                        {content.footer.github_link.text}     
+                        {FOOTER_CONTENT.github_link.text}     
                     </button>
                 </a>               
             </div>
-        </React.Fragment>
+        </>
     );
   }
   

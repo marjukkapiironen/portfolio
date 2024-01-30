@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import { LazyMotion } from "framer-motion";
+import { Suspense, lazy, useEffect, useState } from "react";
 import Intro from "./components/Intro";
 import Navigation from "./components/Navigation";
-import Projects from "./components/Projects";
+import "./styles.css";
+
+const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
 
 const App : React.FC = () : React.ReactElement => {
 
@@ -26,21 +29,34 @@ const App : React.FC = () : React.ReactElement => {
 
   }, [isDark]);
 
+  const loadFeatures = () =>
+  import("./features.js").then(res => res.default)
+
   return (
     <div className={` app ${isDark ? 'dark' : ''}`} data-theme={`${isDark ? 'dark' : 'light'}`} >
       <div className={` background ${isDark ? 'dark' : ''}`} ></div>
       <div className='container'>
+      <LazyMotion features={loadFeatures}>
         <Navigation
           isDark={isDark}
           setIsDark={setIsDark}
           />
         <Intro/>
         <div className='divider'>
-          <About/>
-          <Projects/>
-          <Contact/>
+          <Suspense fallback={<div></div>}>
+            <About/>
+          </Suspense>
+          <Suspense fallback={<div></div>}>
+            <Projects/>
+          </Suspense>
+          <Suspense fallback={<div></div>}>
+            <Contact/>
+          </Suspense>
         </div>
-        <Footer/>
+        <Suspense fallback={<div></div>}>
+          <Footer/>
+        </Suspense>
+        </LazyMotion>
       </div>
     </div>
   );

@@ -1,8 +1,6 @@
-import { AnimatePresence, Variants, motion } from 'framer-motion';
+import { AnimatePresence, Variants, m } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { HiOutlineArrowLongRight } from "react-icons/hi2";
-import { content } from '../content';
-import '../styles.css';
+import { INTRO_CONTENT } from '../content';
 
 const Intro : React.FC = () : React.ReactElement => {
 
@@ -28,7 +26,7 @@ const Intro : React.FC = () : React.ReactElement => {
       }, []);
     
       const changeText = (count: number): { currentItem: string; addedCount: number } => {
-        let items: string[] = content.intro.changing_text;
+        let items: string[] = INTRO_CONTENT.changing_text;
     
         const currentItem = items[count];
         const addedCount = (count + 1) % items.length;
@@ -38,7 +36,7 @@ const Intro : React.FC = () : React.ReactElement => {
     return (
         <div className='intro-container'>         
 
-            <motion.div
+            <m.div
                 initial={{ opacity: 0, y: -70 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
@@ -47,9 +45,9 @@ const Intro : React.FC = () : React.ReactElement => {
                                 y: { duration: 0.8 }
                             }}
                 >
-                <h2>{content.intro.main_text}</h2>
+                <h2>{INTRO_CONTENT.main_text}</h2>
                     <AnimatePresence mode='wait'>
-                        <motion.div
+                        <m.div
                             variants={variants}
                             initial='initial'
                             animate='animate'
@@ -58,11 +56,11 @@ const Intro : React.FC = () : React.ReactElement => {
                             style={{ zIndex: -5}}
                             >
                             <h2 className='animated'>{text}</h2>
-                        </motion.div>
+                        </m.div>
                     </AnimatePresence>
        
-            </motion.div>
-            <motion.div
+            </m.div>
+            <m.div
                 className='button-container'
                 initial={{ opacity: 0, y: 70 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -74,15 +72,15 @@ const Intro : React.FC = () : React.ReactElement => {
                 >
                 <a href='#about'>
                     <button className='content-button bold'>
-                        {content.intro.buttons.about}
+                        {INTRO_CONTENT.buttons.about}
                     </button>
                 </a>
                 <a href='#contact'>
                     <button className='content-button bold'>
-                        {content.intro.buttons.contact}
+                        {INTRO_CONTENT.buttons.contact}
                     </button>
                 </a>
-            </motion.div>
+            </m.div>
 
         </div>
 
