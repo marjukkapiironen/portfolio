@@ -11,53 +11,65 @@ const Footer = lazy(() => import('./components/Footer'));
 
 const App : React.FC = () : React.ReactElement => {
 
-  //Save theme preference to local storage
-  const [isDark, setIsDark] = useState(() => {
-
-    const savedTheme = localStorage.getItem("theme");
-
-    return Boolean(savedTheme)
-      ? JSON.parse(String(savedTheme))
-      : true
-  });
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
 
-    Boolean(isDark)
-    ? localStorage.setItem("theme", JSON.stringify(true))
-    : localStorage.setItem("theme", JSON.stringify(false))
+    const handleScroll = () => {
 
-  }, [isDark]);
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > 1000 && scrollPosition < 1400) {
+
+            setActiveSection('about')
+        }
+        else if (scrollPosition > 2400 && scrollPosition < 2600) {
+
+            setActiveSection('projects')
+        }
+
+        else if (scrollPosition > 3700 && scrollPosition < 4100) {
+
+            setActiveSection('contact')
+        }
+        
+        else {
+
+            setActiveSection('')
+        } 
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const loadFeatures = () =>
   import("./features.js").then(res => res.default)
 
   return (
-    <div className={` app ${isDark ? 'dark' : ''}`} data-theme={`${isDark ? 'dark' : 'light'}`} >
-      <div className={` background ${isDark ? 'dark' : ''}`} ></div>
-      <div className='container'>
+    <div className='app dark-bg'>
+      <div className='circle-up-right'/>
+      <div className='circle-bottom-left'/>
       <LazyMotion features={loadFeatures}>
-        <Navigation
-          isDark={isDark}
-          setIsDark={setIsDark}
-          />
         <Intro/>
-        <div className='divider'>
+        <Navigation activeSection={activeSection} />
           <Suspense fallback={<div></div>}>
-            <About/>
+            <About activeSection={activeSection} />
           </Suspense>
           <Suspense fallback={<div></div>}>
-            <Projects/>
+            <Projects activeSection={activeSection}/>
           </Suspense>
           <Suspense fallback={<div></div>}>
-            <Contact/>
+            <Contact activeSection={activeSection}/>
           </Suspense>
-        </div>
         <Suspense fallback={<div></div>}>
           <Footer/>
         </Suspense>
         </LazyMotion>
-      </div>
     </div>
   );
 }

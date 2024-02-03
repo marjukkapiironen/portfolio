@@ -3,17 +3,12 @@ import { FOOTER_CONTENT } from '../content';
 const Footer : React.FC = () : React.ReactElement => {
 
     return (
-        <>
-            <div className='component-gap'></div>   
+        <div className='container-full-width-20-height light-bg'> 
+            <div className='circle-bottom-center'/>
             <div className='footer-container'>
-                <p className='footer-text'>{FOOTER_CONTENT.text}</p>
-                <a href={FOOTER_CONTENT.github_link.link}>
-                    <button className='content-button footer-button bold'>
-                        {FOOTER_CONTENT.github_link.text}     
-                    </button>
-                </a>               
+                <p className='footer-text uppercase-small bold'>{FOOTER_CONTENT.text}</p>              
             </div>
-        </>
+        </div>
     );
   }
   

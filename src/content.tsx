@@ -1,16 +1,3 @@
-export const INTRO_CONTENT = {
-    main_text: "Passion for programming and",
-    changing_text: [
-        "learning",
-        "designing",
-        "creating",
-    ],
-    buttons: {
-        "about": "read more",
-        "contact": "say hello",
-    },
-}
-
 export const ABOUT_CONTENT = {
     title: "About me",
     bio: [
@@ -52,7 +39,7 @@ export const PROJECTS_CONTENT = {
 }
 
 export const CONTACT_CONTENT = {
-    title: "Find me on",
+    title: "Find me",
     description: "Here are some places where you can find me on the internet. Feel free to take a look and say hello. :)",
     items: [
         {

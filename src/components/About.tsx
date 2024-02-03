@@ -5,28 +5,58 @@ import { ABOUT_CONTENT } from '../content';
 
 type IconNames = keyof typeof Icons;
 
-const About : React.FC = () : React.ReactElement => {  
+interface Props {
+    activeSection : string
+}
+
+const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {  
+
 
     return (
-        <>
-        <div id='about' className='component-container'>
+        <div id='about' className='container-full-width-height'>
+            <div className='container-max-1000-width'>
 
-            <h2 className='section-heading'>{ABOUT_CONTENT.title}</h2>
+            <h1 className={`section-heading ${activeSection === 'about' ? 'active' : ''}`}>{ABOUT_CONTENT.title}</h1>
                 <div className='col-container about'>
                     <m.div
                         className='col-60'
-                        initial={{ opacity: 0, y: 70 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{y: 200, opacity: 0}}
+                        whileInView={{y: 0, opacity: 1}}
                         transition={{
-                                        ease: 'easeIn',
-                                        opacity: { duration: 2 },
-                                        y: { duration: 0.9 },
-                                    }}
-                        viewport={{ once : true }}
+                            y: { duration: 2.5, ease: 'easeOut' },
+                            opacity: { duration: 0.5, ease: 'easeIn' },
+                            }}
+                            viewport={{ once : true }}
                         >
-                        <p>{ABOUT_CONTENT.bio[0]}</p>
-                        <p style={{ marginBottom: '0.5em', marginTop: '1.5em' }}>{ABOUT_CONTENT.bio[1]}</p>
-                        <ul className='skills'>
+                        <m.p
+                            initial={{opacity: 0}}
+                            whileInView={{opacity: 1}}
+                            transition={{duration: 1, ease: 'easeIn'}}
+                            viewport={{ once : true }}
+                            >
+                            {ABOUT_CONTENT.bio[0]}
+                            </m.p>
+                        <m.p
+                            style={{ marginBottom: '0.5em', marginTop: '1.5em' }}
+                            initial={{opacity: 0, y: 100}}
+                            whileInView={{opacity: 1, y: 0}}
+                            transition={{
+                                y: { duration: 2, ease: 'easeOut'},
+                                opacity: { delay: 0.5, duration: 0.5, ease: 'easeIn'}
+                            }}
+                            viewport={{ once : true }}
+                            >
+                            {ABOUT_CONTENT.bio[1]}</m.p>
+                        <m.ul
+                            className='skills'
+                            initial={{opacity: 0, y: 150}}
+                            whileInView={{opacity: 1, y: 0}}
+                            transition={{
+                                y: { duration: 2.4, ease: 'easeOut'},
+                                opacity: { delay: 1, duration: 0.5, ease: 'easeIn'}
+                            }}
+                            viewport={{ once : true }}
+                            >
                             {ABOUT_CONTENT.technologies.map((technology, index) => {
                                 const IconComponent = Icons[technology.icon as IconNames] as IconType;
                                 return (
@@ -34,35 +64,59 @@ const About : React.FC = () : React.ReactElement => {
                                     key={index}
                                     className='skills'>
                                         {IconComponent && <IconComponent size={15} className='icon' />}
-                                        <p className='bold'>{technology.name}</p>
+                                        <p className='uppercase-small white'>{technology.name}</p>
                                     </li>
                                 );
                             })}
-                        </ul>
-                            <p style={{ marginTop: '0.5em' }}>{ABOUT_CONTENT.bio[2]}</p>
+                        </m.ul>
+                            <m.p
+                                style={{ marginTop: '0.5em' }}
+                                initial={{opacity: 0, y: 180}}
+                                whileInView={{opacity: 1, y: 0}}
+                                transition={{
+                                    y: { duration: 2.8, ease: 'easeOut'},
+                                    opacity: { delay: 1, duration: 0.5, ease: 'easeIn'}
+                                }}
+                                viewport={{ once : true }}
+                                >
+                                {ABOUT_CONTENT.bio[2]}
+                                </m.p>
                     </m.div>
-                    <m.div
+                    <div
                         className='col-40'
-                        initial={{ opacity: 0, y: 70 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{
-                                        opacity: { duration: 2, delay: 0.8 },
-                                        y: { duration: 0.9, delay: 0.8 },
-                                    }}
-                        viewport={{ once : true }}
                         >
-                        <div className='pic'>
-                            <img
+                        <div className='pic-container'>
+                            <m.div
+                                className='absolute-centered'
+                                initial={{opacity: 1}}
+                                animate={{opacity: 0}}
+                                transition={{delay: 3.5, duration: 1}}
+                                viewport={{ once : true }}
+                                >
+                                <m.div
+                                    className='circle'
+                                    initial={{ opacity: 0, scale: 0.05 }}
+                                    whileInView={{ opacity: 1, scale: 2.5}}
+                                    transition={{ duration: 2, delay: 3, ease: 'easeOut' }}
+                                    viewport={{ once : true }}
+                                    />
+                            </m.div>  
+                            <m.img
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 2, delay: 3 }}
+                                viewport={{ once : true }}
                                 className='profile-pic'
-                                src={process.env.PUBLIC_URL + '/assets/profile-pic.png'}
+                                src={process.env.PUBLIC_URL + '/assets/picture.png'}
                                 alt=""
                                 />
                         </div>
-                    </m.div>
+                    </div>
                 </div>
-        </div>
-        <div className='component-gap'></div>
-        </>  
+            </div>
+
+            
+        </div> 
     );
   }
   

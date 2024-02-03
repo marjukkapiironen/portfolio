@@ -2,7 +2,11 @@ import { m } from 'framer-motion';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { CONTACT_CONTENT } from '../content';
 
-const Contact : React.FC = () : React.ReactElement => {
+interface Props {
+  activeSection : string
+}
+
+const Contact : React.FC<Props> = ({ activeSection }) : React.ReactElement => {  
 
     const container = {
         hidden: { opacity: 0 },
@@ -17,22 +21,24 @@ const Contact : React.FC = () : React.ReactElement => {
       }
       
       const item = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: { opacity: 0, y: 150 },
         show: { opacity: 1, y: 0 },
       }
 
     return (
-        <div id='contact' className='last-component-container'>
-            <div>
-                <h2 className='section-heading'>{CONTACT_CONTENT.title}</h2>
+        <div id='contact' className='container-full-width-50-height'>
+            <div className='container-max-1000-width'>
+                <h1 className={`section-heading ${activeSection === 'contact' ? 'active' : ''}`}>
+                    {CONTACT_CONTENT.title}
+                </h1>
                     <m.div
                         className='col-container'
-                        initial={{ opacity: 0, y: 70 }}
+                        initial={{ opacity: 0, y: 150 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{
                                         ease: 'easeIn',
                                         opacity: { duration: 2 },
-                                        y: { duration: 0.9 },
+                                        y: { duration: 2 },
                                     }}
                         viewport={{ once : true }}
                         >
@@ -52,7 +58,7 @@ const Contact : React.FC = () : React.ReactElement => {
                                 key={index}
                                 className='content-button contact bold'
                                 variants={item}
-                                transition={{ duration: 0.5 }}
+                                transition={{ duration: 1.5 }}
                                 >
                                 {contact.text}
                                 <HiOutlineArrowLongRight size={40}/>                
