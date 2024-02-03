@@ -1,3 +1,4 @@
+
 * {
     padding: 0;
     margin: 0;
@@ -15,7 +16,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: scroll;
+    scroll-margin-top: 50px; 
     overflow-x: hidden;
 }
 
@@ -28,9 +30,10 @@ body {
 
 .app {
     width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
     position: relative;
-    overflow-y: hidden;
+    overflow-y: clip;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -256,7 +259,7 @@ button.content-button:hover {
     height: 80vw;
     max-height: 1200px;
     border-radius: 50%;
-    background-image: url(../public/assets/circle-up-right.jpeg);
+    background-image: url(../assets/circle-up-right.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
@@ -272,7 +275,7 @@ button.content-button:hover {
     height: 80vw;
     max-height: 1200px;
     border-radius: 50%;
-    background-image: url(../public/assets/circle-bottom-left.jpeg);
+    background-image: url(../assets/circle-bottom-left.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
@@ -281,15 +284,12 @@ button.content-button:hover {
 .circle-bottom-center {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 70%) rotate(60deg);
-    transform-origin: center center;
-    width: 98vw;
-    max-width: 1500px;
-    height: 98vw;
-    max-height: 1500px;
-    border-radius: 50%;
-    background-image: url(../public/assets/circle-bottom-center.jpeg);
+    right: 0;
+    width: 50vw;
+    max-width: 900px;
+    height: 50vh;
+    max-height: 900px;
+    background-image: url(../assets/circle-bottom-center.png);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
@@ -339,8 +339,8 @@ button.content-button:hover {
     padding: 0.5em;
     background: var(--blur);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
     border-radius: 25px;
     display: flex;
     flex-direction: row;

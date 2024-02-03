@@ -39,7 +39,7 @@ export const PROJECTS_CONTENT = {
 }
 
 export const CONTACT_CONTENT = {
-    title: "Find me",
+    title: "Find me on",
     description: "Here are some places where you can find me on the internet. Feel free to take a look and say hello. :)",
     items: [
         {

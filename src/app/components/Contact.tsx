@@ -1,3 +1,5 @@
+'use client'
+
 import { m } from 'framer-motion';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { CONTACT_CONTENT } from '../content';
@@ -53,7 +55,10 @@ const Contact : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                         viewport={{ once: true }}
                         >           
                         {CONTACT_CONTENT.items.map((contact, index) =>
-                          <a href={contact.link}>
+                          <a
+                            key={index}
+                            href={contact.link}
+                            >
                             <m.button
                                 key={index}
                                 className='content-button contact bold'

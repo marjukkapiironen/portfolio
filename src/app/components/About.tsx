@@ -1,6 +1,10 @@
+'use client'
+
 import { m } from 'framer-motion';
+import Image from 'next/image';
 import { IconType } from 'react-icons/';
 import * as Icons from "react-icons/si";
+import profile_picture from '../assets/picture.png';
 import { ABOUT_CONTENT } from '../content';
 
 type IconNames = keyof typeof Icons;
@@ -101,15 +105,18 @@ const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                                     viewport={{ once : true }}
                                     />
                             </m.div>  
-                            <m.img
+                            <m.div
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 transition={{ duration: 2, delay: 3 }}
                                 viewport={{ once : true }}
-                                className='profile-pic'
-                                src={process.env.PUBLIC_URL + '/assets/picture.png'}
-                                alt=""
-                                />
+                                >
+                                <Image
+                                    className='profile-pic'
+                                    src={profile_picture}
+                                    alt=""
+                                    />
+                             </m.div>
                         </div>
                     </div>
                 </div>

@@ -1,8 +1,10 @@
+"use client"
 import { LazyMotion } from "framer-motion";
 import { Suspense, lazy, useEffect, useState } from "react";
 import Intro from "./components/Intro";
 import Navigation from "./components/Navigation";
-import "./styles.css";
+import './styles/globals.css';
+import "./styles/styles.css";
 
 const About = lazy(() => import('./components/About'));
 const Projects = lazy(() => import('./components/Projects'));

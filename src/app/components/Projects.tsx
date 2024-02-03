@@ -1,5 +1,9 @@
+'use client'
+
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { SiGithub } from "react-icons/si";
+import note_app_pic from '../assets/note_app.png';
 import { PROJECTS_CONTENT } from '../content';
 
 interface Props {
@@ -65,9 +69,9 @@ const Projects : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                                     </div>
                                     {Boolean(project.picture) &&
                                         <div className='show-picture'>
-                                            <img
+                                            <Image
                                                 className=''
-                                                src={process.env.PUBLIC_URL + `${project.picture}`}
+                                                src={note_app_pic}
                                                 alt=""
                                                 />
                                         </div>
