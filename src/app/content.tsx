@@ -1,7 +1,7 @@
 export const ABOUT_CONTENT = {
     title: "About me",
     bio: [
-        "Hi there! I'm Marjukka. I'm a second-year information processing science student @ Xamk specialising in front end development. I love the creative and technical process of starting with an idea and making it come to life. Most of all I'm passionate about constantly challenging myself to learn more and improve my skills in creating engaging digital experiences.",
+        "Hi there! I'm Marjukka. I'm a second-year computer science student @ Xamk specialising in front end development. I love the creative and technical process of starting with an idea and making it come to life. Most of all I'm passionate about constantly challenging myself to learn more and improve my skills in creating engaging digital experiences.",
         "Technologies I have studied / am currently studying...",
         "...and I can't wait to learn more with every project. I'm most experienced with TS, React, Node, HTML and CSS."
     ],
@@ -23,7 +23,7 @@ export const PROJECTS_CONTENT = {
     items: [
         {
             name: "Portfolio page",
-            description: "A fully responsive animated personal portfolio page with dark and light mode versions. Created with React, Typescript and used libraries including Framer Motion and React Icons.",
+            description: "A fully responsive animated personal portfolio page. Created with Next.js using React, Typescript and libraries including Framer Motion and React Icons.",
             link: "https://github.com/marjukkapiironen/portfolio/",
             link_text: "github",
         },
