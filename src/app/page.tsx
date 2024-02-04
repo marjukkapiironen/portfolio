@@ -18,11 +18,13 @@ const App : React.FC = () : React.ReactElement => {
             className='circle-up-right'
             src={circle_up_right}
             alt=""
+            loading="eager"
             />
         <Image
             className='circle-bottom-left'
             src={circle_bottom_left}
             alt=""
+            loading="eager"
             />
             <Intro/>
             <Navigation />
