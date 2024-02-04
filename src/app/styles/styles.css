@@ -583,6 +583,7 @@ p.footer-text {
     }
 
     .container-full-width-80-height {
+        padding-top: 15vh;
         padding-bottom: 15vh;
     }
 
@@ -592,6 +593,10 @@ p.footer-text {
 
     .contact-links {
         flex-direction: column;
+    }
+
+    h1.section-heading {
+        font-size: 3.5em;
     }
 
 }
