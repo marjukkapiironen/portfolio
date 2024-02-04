@@ -1,12 +1,14 @@
 'use client'
-
-import { motion } from 'framer-motion';
+import { LazyMotion, motion } from 'framer-motion';
 import Image from 'next/image';
 import { SiGithub } from "react-icons/si";
 import note_app_pic from '../assets/note_app.png';
 import { PROJECTS_CONTENT } from '../content';
 
 const Projects : React.FC = () : React.ReactElement => {
+
+    const loadFeatures = () =>
+    import("../features.js").then(res => res.default)
 
     const container = {
         hidden: { opacity: 0 },
@@ -26,6 +28,7 @@ const Projects : React.FC = () : React.ReactElement => {
       }
 
     return (
+        <LazyMotion features={loadFeatures}>
         <div id='projects' className='container-full-width-height'>
             <div className='container-max-1000-width'>
                 <h1 className='section-heading'>{PROJECTS_CONTENT.title}</h1>
@@ -86,7 +89,8 @@ const Projects : React.FC = () : React.ReactElement => {
                         </motion.div>
                 </motion.div>
             </div>
-        </div>      
+        </div>
+        </LazyMotion>    
     );
   }
   

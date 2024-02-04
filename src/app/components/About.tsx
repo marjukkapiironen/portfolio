@@ -1,5 +1,5 @@
 'use client'
-import { m } from 'framer-motion';
+import { LazyMotion, m } from 'framer-motion';
 import Image from 'next/image';
 import { IconType } from 'react-icons/';
 import * as Icons from "react-icons/si";
@@ -10,7 +10,11 @@ type IconNames = keyof typeof Icons;
 
 const About : React.FC = () : React.ReactElement => {  
 
+    const loadFeatures = () =>
+    import("../features.js").then(res => res.default)
+
     return (
+        <LazyMotion features={loadFeatures}>
         <div id='about' className='container-full-width-height'>
             <div className='container-max-1000-width'>
             <h1 className='section-heading'>{ABOUT_CONTENT.title}</h1>
@@ -114,7 +118,8 @@ const About : React.FC = () : React.ReactElement => {
                     </div>
                 </div>
             </div>    
-        </div> 
+        </div>
+        </LazyMotion>
     );
   }
   

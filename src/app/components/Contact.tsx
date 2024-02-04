@@ -1,10 +1,12 @@
 'use client'
-
-import { m } from 'framer-motion';
+import { LazyMotion, m } from 'framer-motion';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { CONTACT_CONTENT } from '../content';
 
-const Contact : React.FC = () : React.ReactElement => {  
+const Contact : React.FC = () : React.ReactElement => { 
+
+  const loadFeatures = () =>
+    import("../features.js").then(res => res.default)
 
     const container = {
         hidden: { opacity: 0 },
@@ -24,6 +26,7 @@ const Contact : React.FC = () : React.ReactElement => {
       }
 
     return (
+      <LazyMotion features={loadFeatures}>
         <div id='contact' className='container-full-width-50-height'>
             <div className='container-max-1000-width'>
                 <h1 className='section-heading'>
@@ -69,6 +72,7 @@ const Contact : React.FC = () : React.ReactElement => {
                     </m.div>
             </div>                   
         </div>
+        </LazyMotion>
     );
   }
   
