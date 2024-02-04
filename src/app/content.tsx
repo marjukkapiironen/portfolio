@@ -23,7 +23,7 @@ export const PROJECTS_CONTENT = {
     items: [
         {
             name: "Portfolio page",
-            description: "A fully responsive animated personal portfolio page. Created with Next.js using React, Typescript and libraries including Framer Motion and React Icons.",
+            description: "A responsive animated personal portfolio page. Created with Next.js using React, Typescript and libraries including Framer Motion and React Icons.",
             link: "https://github.com/marjukkapiironen/portfolio/",
             link_text: "github",
         },
