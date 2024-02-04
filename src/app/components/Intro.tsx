@@ -1,11 +1,13 @@
 'use client'
-import { m } from 'framer-motion';
+import { LazyMotion, m } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const Intro : React.FC = () : React.ReactElement => {
 
-    const [isVisible, setIsVisible] = useState(true);
+    const loadFeatures = () =>
+    import("../features.js").then(res => res.default)
 
+    const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -33,6 +35,7 @@ const Intro : React.FC = () : React.ReactElement => {
 
 
     return (
+        <LazyMotion features={loadFeatures}>
         <div className='container-full-width-height light-bg'>
             {Boolean(isVisible) &&
                 <div className='container-max-700-width absolute-centered'>
@@ -98,7 +101,7 @@ const Intro : React.FC = () : React.ReactElement => {
                     </div>
                 </m.div>            
         </div>
-
+        </LazyMotion>
     );
   }
   
