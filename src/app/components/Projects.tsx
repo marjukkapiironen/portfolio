@@ -6,11 +6,7 @@ import { SiGithub } from "react-icons/si";
 import note_app_pic from '../assets/note_app.png';
 import { PROJECTS_CONTENT } from '../content';
 
-interface Props {
-    activeSection : string
-}
-
-const Projects : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
+const Projects : React.FC = () : React.ReactElement => {
 
     const container = {
         hidden: { opacity: 0 },
@@ -32,7 +28,7 @@ const Projects : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
     return (
         <div id='projects' className='container-full-width-height'>
             <div className='container-max-1000-width'>
-                <h1 className={`section-heading ${activeSection === 'projects' ? 'active' : ''}`}>{PROJECTS_CONTENT.title}</h1>
+                <h1 className='section-heading'>{PROJECTS_CONTENT.title}</h1>
                     <motion.div
                         style={{ paddingTop: "2em"}}
                         initial={{ opacity: 0, y: 150 }}

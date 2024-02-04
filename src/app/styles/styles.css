@@ -93,7 +93,7 @@ h1.bold {
 h1.section-heading {
     color: #71c4f4;
     line-height: 1;
-    z-index: 3;
+    z-index: 4;
 }
 
 h1.section-heading.active {
@@ -180,6 +180,7 @@ button.content-button:hover {
     width: 90vw;
     max-width: 1000px;
     margin: 0 auto;
+    z-index: 3;
 }
 
 .col-container {
@@ -259,9 +260,6 @@ button.content-button:hover {
     height: 80vw;
     max-height: 1200px;
     border-radius: 50%;
-    background-image: url(../assets/circle-up-right.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
     z-index: 1;
 }
 
@@ -275,9 +273,6 @@ button.content-button:hover {
     height: 80vw;
     max-height: 1200px;
     border-radius: 50%;
-    background-image: url(../assets/circle-bottom-left.jpeg);
-    background-repeat: no-repeat;
-    background-size: cover;
     z-index: 1;
 }
 
@@ -365,6 +360,7 @@ button.content-button:hover {
 
 .profile-pic {
     height: 300px;
+    width: auto;
     border-radius: 50%;
     z-index: 3;
 }
@@ -569,6 +565,7 @@ p.footer-text {
 
     .profile-pic {
         height: 250px;
+        width: auto;
     }
 
     .contact-links {

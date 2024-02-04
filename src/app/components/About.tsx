@@ -1,5 +1,4 @@
 'use client'
-
 import { m } from 'framer-motion';
 import Image from 'next/image';
 import { IconType } from 'react-icons/';
@@ -9,18 +8,12 @@ import { ABOUT_CONTENT } from '../content';
 
 type IconNames = keyof typeof Icons;
 
-interface Props {
-    activeSection : string
-}
-
-const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {  
-
+const About : React.FC = () : React.ReactElement => {  
 
     return (
         <div id='about' className='container-full-width-height'>
             <div className='container-max-1000-width'>
-
-            <h1 className={`section-heading ${activeSection === 'about' ? 'active' : ''}`}>{ABOUT_CONTENT.title}</h1>
+            <h1 className='section-heading'>{ABOUT_CONTENT.title}</h1>
                 <div className='col-container about'>
                     <m.div
                         className='col-60'
@@ -78,8 +71,8 @@ const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                                 initial={{opacity: 0, y: 180}}
                                 whileInView={{opacity: 1, y: 0}}
                                 transition={{
-                                    y: { duration: 2.8, ease: 'easeOut'},
-                                    opacity: { delay: 1, duration: 0.5, ease: 'easeIn'}
+                                    y: {duration: 2.8, ease: 'easeOut'},
+                                    opacity: {delay: 1, duration: 0.5, ease: 'easeIn'}
                                 }}
                                 viewport={{ once : true }}
                                 >
@@ -95,21 +88,21 @@ const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                                 initial={{opacity: 1}}
                                 animate={{opacity: 0}}
                                 transition={{delay: 3.5, duration: 1}}
-                                viewport={{ once : true }}
+                                viewport={{once : true}}
                                 >
                                 <m.div
                                     className='circle'
-                                    initial={{ opacity: 0, scale: 0.05 }}
-                                    whileInView={{ opacity: 1, scale: 2.5}}
-                                    transition={{ duration: 2, delay: 3, ease: 'easeOut' }}
-                                    viewport={{ once : true }}
+                                    initial={{opacity: 0, scale: 0.05}}
+                                    whileInView={{opacity: 1, scale: 2.5}}
+                                    transition={{duration: 2, delay: 3, ease: 'easeOut'}}
+                                    viewport={{once : true}}
                                     />
                             </m.div>  
                             <m.div
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                transition={{ duration: 2, delay: 3 }}
-                                viewport={{ once : true }}
+                                initial={{opacity: 0}}
+                                whileInView={{opacity: 1}}
+                                transition={{duration: 2, delay: 3}}
+                                viewport={{once : true}}
                                 >
                                 <Image
                                     className='profile-pic'
@@ -120,9 +113,7 @@ const About : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
                         </div>
                     </div>
                 </div>
-            </div>
-
-            
+            </div>    
         </div> 
     );
   }

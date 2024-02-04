@@ -4,11 +4,7 @@ import { m } from 'framer-motion';
 import { HiOutlineArrowLongRight } from 'react-icons/hi2';
 import { CONTACT_CONTENT } from '../content';
 
-interface Props {
-  activeSection : string
-}
-
-const Contact : React.FC<Props> = ({ activeSection }) : React.ReactElement => {  
+const Contact : React.FC = () : React.ReactElement => {  
 
     const container = {
         hidden: { opacity: 0 },
@@ -30,7 +26,7 @@ const Contact : React.FC<Props> = ({ activeSection }) : React.ReactElement => {
     return (
         <div id='contact' className='container-full-width-50-height'>
             <div className='container-max-1000-width'>
-                <h1 className={`section-heading ${activeSection === 'contact' ? 'active' : ''}`}>
+                <h1 className='section-heading'>
                     {CONTACT_CONTENT.title}
                 </h1>
                     <m.div

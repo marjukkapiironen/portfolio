@@ -14,7 +14,7 @@ const Intro : React.FC = () : React.ReactElement => {
         }, 2200);
     
         return () => clearTimeout(timeoutId);
-        }, []);
+    }, []);
 
     const firstAnimationVariants = {
         initial: { opacity: 0, scale: 0.05 },
@@ -35,7 +35,6 @@ const Intro : React.FC = () : React.ReactElement => {
 
     return (
         <div className='container-full-width-height light-bg'>
-
             {Boolean(isVisible) &&
                 <div className='container-max-700-width absolute-centered'>
                     <div className='left-align mb-90'>
@@ -82,7 +81,6 @@ const Intro : React.FC = () : React.ReactElement => {
                     </div>
                     </div>
                 }
-
                 <m.div
                     className='container-max-800-width'
                     initial={{opacity: 0}}
@@ -99,8 +97,7 @@ const Intro : React.FC = () : React.ReactElement => {
                             Piironen
                             </h1>
                     </div>
-                </m.div>           
-            
+                </m.div>            
         </div>
 
     );

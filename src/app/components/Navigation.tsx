@@ -1,14 +1,9 @@
 'use client'
-
 import { m } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { NAVIGATION_CONTENT } from '../content';
 
-interface Props {
-  activeSection : string
-}
-
-const Navigation : React.FC<Props> = ({ activeSection }) : React.ReactElement => { 
+const Navigation : React.FC = () : React.ReactElement => { 
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -44,7 +39,7 @@ const Navigation : React.FC<Props> = ({ activeSection }) : React.ReactElement =>
                         key={index}
                         href={`#${item}`}
                         >
-                        <p className={`uppercase-small ${activeSection === item ? 'bold' : ''}`}>{item}</p>
+                        <p className='uppercase-small'>{item}</p>
                     </a>
                 )}
             </nav>
