@@ -1,0 +1,9 @@
+{
+    "name": "marjukka piironen",
+    "short_name": "marjukka piironen",
+    "description": "Personal portfolio website",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#f2f8fc",
+    "theme_color": "#f2f8fc"
+  }
