@@ -1,11 +1,8 @@
 'use client'
-import { LazyMotion, m } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const Intro : React.FC = () : React.ReactElement => {
-
-    const loadFeatures = () =>
-    import("../features.js").then(res => res.default)
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -35,55 +32,54 @@ const Intro : React.FC = () : React.ReactElement => {
 
 
     return (
-        <LazyMotion features={loadFeatures}>
         <div className='container-full-width-height light-bg'>
             {Boolean(isVisible) &&
                 <div className='container-max-700-width absolute-centered'>
                     <div className='left-align mb-90'>
-                        <m.div
+                        <motion.div
                             initial={{opacity: 1}}
                             animate={{opacity: 0}}
                             transition={{delay: 0.7, duration: 0.6}}
                             >
-                            <m.div
+                            <motion.div
                                 className='circle'
                                 variants={firstAnimationVariants}
                                 initial="initial"
                                 animate='animate'
                                 />
-                        </m.div>  
+                        </motion.div>  
                     </div>
                     <div className='right-align mb-90'>
-                        <m.div
+                        <motion.div
                             initial={{opacity: 1}}
                             animate={{opacity: 0}}
                             transition={{delay: 0.9, duration: 0.6 }}
                             >
-                            <m.div
+                            <motion.div
                             className='circle'
                             variants={secondAnimationVariants}
                             initial="initial"
                             animate='animate'
                             />
-                        </m.div>
+                        </motion.div>
                     </div>
                     <div className='center-align mb-90'>
-                        <m.div
+                        <motion.div
                                 initial={{opacity: 1}}
                                 animate={{opacity: 0}}
                                 transition={{delay: 1.2, duration: 0.9 }}
                                 >
-                            <m.div
+                            <motion.div
                                 className='circle'
                                 variants={thirdAnimationVariants}
                                 initial="initial"
                                 animate='animate'
                                 />
-                        </m.div>
+                        </motion.div>
                     </div>
                     </div>
                 }
-                <m.div
+                <motion.div
                     className='container-max-800-width'
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
@@ -99,9 +95,8 @@ const Intro : React.FC = () : React.ReactElement => {
                             Piironen
                             </h1>
                     </div>
-                </m.div>            
+                </motion.div>            
         </div>
-        </LazyMotion>
     );
   }
   
