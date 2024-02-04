@@ -1,27 +1,14 @@
-import dynamic from 'next/dynamic';
 import Image from "next/image";
-import circle_bottom_left from './assets/circle-bottom-left.jpeg';
-import circle_up_right from './assets/circle-up-right.jpeg';
+import circle_bottom_left from './assets/circle-bottom-left.jpg';
+import circle_up_right from './assets/circle-up-right.jpg';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 import Intro from "./components/Intro";
 import Navigation from "./components/Navigation";
+import Projects from './components/Projects';
 import './styles/globals.css';
 import "./styles/styles.css";
-
-const About = dynamic(() => import('./components/About'), {
-    loading: () => <div></div>,
-  })
-
-const Projects = dynamic(() => import('./components/Projects'), {
-    loading: () => <div></div>,
-})
-
-const Contact = dynamic(() => import('./components/Contact'), {
-    loading: () => <div></div>,
-})
-
-const Footer = dynamic(() => import('./components/Footer'), {
-    loading: () => <div></div>,
-})
 
 const App : React.FC = () : React.ReactElement => {
 

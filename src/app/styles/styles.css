@@ -133,7 +133,7 @@ button.content-button:hover {
 
 .container-full-width-height {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
@@ -144,11 +144,11 @@ button.content-button:hover {
 
 .container-full-width-20-height {
     width: 100vw;
+    min-height: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 20vh;
     position: relative;
 }
 
@@ -169,7 +169,7 @@ button.content-button:hover {
 
 .container-max-800-width {
     width: 90vw;
-    max-width: 900px;
+    max-width: 800px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -580,11 +580,6 @@ p.footer-text {
 }
 
 @media only screen and (max-width: 520px) {
-
-    .background {
-        height: calc(100vh + 70px);
-        min-height: calc(100vh + 70px);
-    }
 
     .contact-links {
         flex-direction: column;

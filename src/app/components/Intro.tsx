@@ -85,16 +85,12 @@ const Intro : React.FC = () : React.ReactElement => {
                     animate={{opacity: 1}}
                     transition={{delay: 0.3, duration: 2.4, ease: 'easeIn'}}
                     >
-                    <div className=''>
-                        <h1 style={{writingMode: 'vertical-rl', transform: "rotate(180deg)"}}>
-                            Marjukka
-                        </h1>
-                    </div>
-                    <div className=''>
-                        <h1 className='bold' style={{writingMode: 'vertical-rl'}}>
-                            Piironen
-                            </h1>
-                    </div>
+                    <h1 style={{writingMode: 'vertical-rl', transform: "rotate(180deg)"}}>
+                        Marjukka
+                    </h1>
+                    <h1 className='bold' style={{writingMode: 'vertical-rl'}}>
+                        Piironen
+                    </h1>
                 </motion.div>            
         </div>
     );
