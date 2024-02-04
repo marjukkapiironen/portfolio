@@ -27,7 +27,7 @@ const Contact : React.FC = () : React.ReactElement => {
 
     return (
       <LazyMotion features={loadFeatures}>
-        <div id='contact' className='container-full-width-50-height'>
+        <div id='contact' className='container-full-width-80-height'>
             <div className='container-max-1000-width'>
                 <h1 className='section-heading'>
                     {CONTACT_CONTENT.title}
