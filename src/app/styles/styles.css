@@ -553,11 +553,7 @@ p.footer-text {
 @media only screen and (max-width: 650px) {
 
     h1{
-        font-size: 5em;
-    }
-
-    h1.bold{
-        font-size: 5em;
+        font-size: 4em;
     }
 
     .profile-pic {
