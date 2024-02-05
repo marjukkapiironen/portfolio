@@ -3,7 +3,7 @@ import { LazyMotion, m } from 'framer-motion';
 import Image from 'next/image';
 import { IconType } from 'react-icons/';
 import * as Icons from "react-icons/si";
-import profile_picture from '../assets/picture.png';
+import profile_picture from '../assets/prof-pic.jpg';
 import { ABOUT_CONTENT } from '../content';
 
 type IconNames = keyof typeof Icons;
@@ -38,7 +38,7 @@ const About : React.FC = () : React.ReactElement => {
                             {ABOUT_CONTENT.bio[0]}
                             </m.p>
                         <m.p
-                            style={{ marginBottom: '0.5em', marginTop: '1.5em' }}
+                            style={{ marginBottom: '1em', marginTop: '1.5em' }}
                             initial={{opacity: 0, y: 100}}
                             whileInView={{opacity: 1, y: 0}}
                             transition={{
@@ -71,7 +71,7 @@ const About : React.FC = () : React.ReactElement => {
                             })}
                         </m.ul>
                             <m.p
-                                style={{ marginTop: '0.5em' }}
+                                style={{ marginTop: '1em' }}
                                 initial={{opacity: 0, y: 180}}
                                 whileInView={{opacity: 1, y: 0}}
                                 transition={{

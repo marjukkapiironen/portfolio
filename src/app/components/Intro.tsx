@@ -80,17 +80,17 @@ const Intro : React.FC = () : React.ReactElement => {
                     </div>
                 }
                 <motion.div
-                    className='container-max-800-width'
+                    className='container-max-300-width'
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     transition={{delay: 0.3, duration: 2.4, ease: 'easeIn'}}
                     >
-                    <h1 style={{writingMode: 'vertical-rl', transform: "rotate(180deg)"}}>
-                        Marjukka
+                    <h1 style={{writingMode: 'vertical-rl'}}>
+                        ハローワールド
                     </h1>
-                    <h1 className='bold' style={{writingMode: 'vertical-rl'}}>
-                        Piironen
-                    </h1>
+                    <p className='dark' >
+                    &#65371; hello world by marjukka &#65373;
+                    </p>
                 </motion.div>            
         </div>
     );

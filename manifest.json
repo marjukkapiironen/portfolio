@@ -4,6 +4,6 @@
     "description": "Personal portfolio website",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#21202c",
-    "theme_color": "#21202c"
+    "background_color": "#f7ece8",
+    "theme_color": "#f7ece8"
   }
