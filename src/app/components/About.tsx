@@ -112,6 +112,7 @@ const About : React.FC = () : React.ReactElement => {
                                     className='profile-pic'
                                     src={profile_picture}
                                     alt=""
+                                    loading='lazy'
                                     />
                              </m.div>
                         </div>

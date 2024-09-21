@@ -11,7 +11,7 @@
     --primary: #0b0a0f;
     --accent:#a6d9ba;
     --circle: #adabba;
-    --blur: #d0ebfb79;
+    --blur: #a6d9bab9;
     --light: #faeeea;
 }
 
@@ -65,15 +65,7 @@ p {
 p.uppercase-small {
     text-transform: uppercase;
     font-size: 1em;
-    color: var(--primary)
-}
-
-p.uppercase-small.bold {
-    font-weight: 600;
-}
-
-p.uppercase-small.white {
-    color: var(--light)
+    z-index: 6;
 }
 
 h1 {
