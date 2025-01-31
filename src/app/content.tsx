@@ -1,7 +1,7 @@
 export const ABOUT_CONTENT = {
     title: "About me",
     bio: [
-        "Hi there! I'm Marjukka. I'm a second-year computer science student @ Xamk aspiring to become a full-stack developert. I love the creative and technical process of starting with an idea and bringing it to life. Most of all I'm passionate about challenging myself to learn more and improve my skills in creating engaging digital experiences.",
+        "Hi there! I'm Marjukka. I'm a second-year computer science student @ Xamk aspiring to become a full-stack developer. I love the creative and technical process of starting with an idea and bringing it to life. Most of all I'm passionate about challenging myself to learn more and improve my skills in creating engaging digital experiences.",
         "Technologies I have studied / am currently studying...",
         "...and I can't wait to learn more with every project. I'm most experienced with TS, React, Node, HTML and CSS."
     ],
